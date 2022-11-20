@@ -1,0 +1,4 @@
+Le fichier "base.html.twig" est le "layout" dans le framework maison vu précédemment.
+
+twig -> moteur de template (moteur de template par défaut) / chez laravel , ce sera "blade"
+

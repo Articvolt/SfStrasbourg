@@ -1,0 +1,3 @@
+index.php -> point d'entrée du projet
+
+ici, les banques d'images, les CSS sont stockées les ressources publiques
