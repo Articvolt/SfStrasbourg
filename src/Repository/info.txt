@@ -1,0 +1,1 @@
+Le dossier "Repository" est l'équivalent de "Manager" dans les exercices précédents.
