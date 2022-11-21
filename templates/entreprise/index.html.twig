@@ -3,5 +3,24 @@
 {% block title %}Hello EntrepriseController!{% endblock %}
 
 {% block body %}
+    <h1>Liste des entreprises</h1>
+
+    {# <p>lorem</p> #}
+{# {{}} : équivalent du echo dans PHP #}
+{# permet d'appeler les données insérées dans le controlleur (EntrepriseController) #}
+    {# <p>Hello {{ name }} </p> #}
+
+{# donne un nom au for -> (ici "element") #}
+    {# {% for element in tableau %} #}
+        {# {{ element }} <br> #}
+    {# {% endfor %}  #}
+
+    {% for entreprise in entreprises %}
+    {# appelle la variable entreprise avec un getsous la forme xx.xx #}
+        {{ entreprise.raisonSociale ~ ' ( ' ~ entreprise.cp ~ ' ' ~ entreprise.ville ~ ')'  }}
+        <br>
+        {# autre façon de l'écrire #}
+        {# {{ entreprise.raisonSociale }} ({{entreprise.cp}} {{entreprise.ville}}) <br> #}
+    {% endfor %}
 
 {% endblock %}
