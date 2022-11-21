@@ -10,3 +10,8 @@ Exercice d'introduction guidé de Symfony
 ## Notions à retenir
 
 - système de rooting
+
+## Liens utiles
+
+- https://symfony.com/doc/current/doctrine.html#fetching-objects-from-the-database
+- https://twig.symfony.com/doc/3.x/
