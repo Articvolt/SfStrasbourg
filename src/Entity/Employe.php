@@ -125,9 +125,18 @@ class Employe
         return $this;
     }
 
+    // FONCTION AJOUTEE MANUELLEMENT
+    public function getAge()
+    {
+        $now = new \Datetime();
+        $interval = date_diff($this->dateNaissance, $now);
+        return $interval->format("%Y");
+    }
+
     public function __toString()
     {
-        // "$this->getEntreprise()" fonctionne que si il y a un __toString dans l'entité Entreprise
-        return $this->prenom." ".$this->nom." (".$this->getEntreprise().")";
+    // "$this->getEntreprise()" fonctionne que si il y a un __toString dans l'entité Entreprise
+    // return $this->prenom." ".$this->nom." (".$this->getEntreprise().")";
+        return $this->prenom." ".$this->nom;
     }
 }

@@ -1,0 +1,18 @@
+{# heritage de la vue mais pas dans le sens de la POO #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmployeController!{% endblock %}
+
+{% block body %}
+
+    <h1>{{ entreprise }}</h1>
+ 
+    
+
+    <p>
+        SIRET:  {{ entreprise.siret }}<br>
+        Date de création: {{ entreprise.dateCreation | date('d-m-Y') }} <br>
+        Adresse: {{ entreprise.fullAdresse }}
+    </p>
+
+{% endblock %}

@@ -26,7 +26,7 @@
         {# {{ entreprise.raisonSociale }} ({{entreprise.cp}} {{entreprise.ville}}) <br> #}
     
         {# si il y a un tostring, on peux l'appeler comme ceci #}
-        <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}" target="_blank">{{ entreprise }}</a> <br>
+        <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a> <br>
     {% endfor %}
 
 {% endblock %}

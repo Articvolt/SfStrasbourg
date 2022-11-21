@@ -7,7 +7,13 @@
 
     <h1>{{ employe }}</h1>
  
+    
+
     <p>
-        {{ employe.ville }}
+        Ville: {{ employe.ville }} <br>
+        Entreprise: {{ employe.entreprise.raisonSociale }} <br>
+        Date d'embauche: {{ employe.dateEmbauche | date('d/m/Y') }} <br>
+        Date de naissance: {{ employe.dateNaissance | date('d/m/Y') }} ({{ employe.age }} ans)
+
     </p>
 {% endblock %}
