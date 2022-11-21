@@ -9,7 +9,8 @@ Exercice d'introduction guidé de Symfony
 
 ## Notions à retenir
 
-- système de rooting
+- système de rooting.
+- DQL : Doctrine Query Language, langage qui s'apparente à SQL mais qui s'applique à des entités (objets PHP) et non sur la base de données.
 
 ## Liens utiles
 
