@@ -14,6 +14,7 @@ class EmployeController extends AbstractController
      * @Route("/employe", name="app_employe")
      */
     // VERSION FINDALL identique à FINDBY mais on ne peux pas trier par ordre croissant ou décroissant
+    // réponse HTTP -> response
     public function index(ManagerRegistry $doctrine): Response
     {
         $employes = $doctrine->getRepository(Employe::class)->findAll();
