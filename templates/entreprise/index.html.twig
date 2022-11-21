@@ -5,6 +5,9 @@
 {% block body %}
     <h1>Liste des entreprises</h1>
 
+    {# vardump sur symfony #}
+    {# {{ dump(entreprises)}} #}
+
     {# <p>lorem</p> #}
 {# {{}} : équivalent du echo dans PHP #}
 {# permet d'appeler les données insérées dans le controlleur (EntrepriseController) #}
@@ -23,7 +26,7 @@
         {# {{ entreprise.raisonSociale }} ({{entreprise.cp}} {{entreprise.ville}}) <br> #}
     
         {# si il y a un tostring, on peux l'appeler comme ceci #}
-        {{ entreprise }} <br>
+        <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}" target="_blank">{{ entreprise }}</a> <br>
     {% endfor %}
 
 {% endblock %}

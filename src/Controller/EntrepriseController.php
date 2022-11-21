@@ -13,20 +13,41 @@ class EntrepriseController extends AbstractController
     /**
      * @Route("/entreprise", name="app_entreprise")
      */
+    // public function index(ManagerRegistry $doctrine): Response
+    // {
+    //     // test en ajoutant un tableau
+    //     // $tableau = ["valeur 1","valeur 2","valeur 3","valeur 4","valeur 5"];
+
+    //     // fonction qui récupère les entreprises dans la BDO
+    //     // https://symfony.com/doc/current/doctrine.html#fetching-objects-from-the-database
+    //     $entreprises = $doctrine->getRepository(Entreprise::class)->findAll();
+    //     return $this->render('entreprise/index.html.twig', [
+    //         'entreprises' => $entreprises
+
+    //         // test en ajoutant à name, une valeur (ici -> Mickael)
+    //         // 'name'=>'Mickael',
+    //         // 'tableau' => $tableau
+    //     ]);
+
+
     public function index(ManagerRegistry $doctrine): Response
     {
-        // test en ajoutant un tableau
-        // $tableau = ["valeur 1","valeur 2","valeur 3","valeur 4","valeur 5"];
-
-        // fonction qui récupère les entreprises dans la BDO
-        // https://symfony.com/doc/current/doctrine.html#fetching-objects-from-the-database
-        $entreprises = $doctrine->getRepository(Entreprise::class)->findAll();
+        $entreprises = $doctrine->getRepository(Entreprise::class)->findBy([], ["raisonSociale" => "DESC"]);
         return $this->render('entreprise/index.html.twig', [
             'entreprises' => $entreprises
+        ]);
+    }
 
-            // test en ajoutant à name, une valeur (ici -> Mickael)
-            // 'name'=>'Mickael',
-            // 'tableau' => $tableau
+
+    // ACTION 
+    /**
+     * @Route("/entreprise/{id}", name="show_entreprise")
+     */
+    public function show(): Response 
+    {
+        $entreprise ="";
+        return $this->render('entreprise/index.html.twig', [
+            'entreprise' => $entreprise
         ]);
     }
 }
