@@ -124,4 +124,10 @@ class Employe
 
         return $this;
     }
+
+    public function __toString()
+    {
+        // "$this->getEntreprise()" fonctionne que si il y a un __toString dans l'entité Entreprise
+        return $this->prenom." ".$this->nom." (".$this->getEntreprise().")";
+    }
 }

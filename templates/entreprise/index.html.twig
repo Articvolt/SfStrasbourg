@@ -17,10 +17,13 @@
 
     {% for entreprise in entreprises %}
     {# appelle la variable entreprise avec un getsous la forme xx.xx #}
-        {{ entreprise.raisonSociale ~ ' ( ' ~ entreprise.cp ~ ' ' ~ entreprise.ville ~ ')'  }}
+        {# {{ entreprise.raisonSociale ~ ' ( ' ~ entreprise.cp ~ ' ' ~ entreprise.ville ~ ')'  }} #}
         <br>
         {# autre façon de l'écrire #}
         {# {{ entreprise.raisonSociale }} ({{entreprise.cp}} {{entreprise.ville}}) <br> #}
+    
+        {# si il y a un tostring, on peux l'appeler comme ceci #}
+        {{ entreprise }} <br>
     {% endfor %}
 
 {% endblock %}
