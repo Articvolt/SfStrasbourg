@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Entreprise;
+use App\Form\EntrepriseType;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,6 +40,37 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
+    // ADD FORMULAIRE (mettre avant les recherches en détails -> risque de confusion)
+    /**
+     * @Route("/entreprise/add", name="add_entreprise")
+     */
+    public function add(ManagerRegistry $doctrine, Entreprise $entreprise = null, Request $request): Response {
+
+        // construit un formulaire à partir d'un builder (EntrepriseType)
+        $form = $this->createForm(EntrepriseType::class, $entreprise);
+        // récupère les données de l'objet pour les envoyer dans le formulaire
+        $form->handleRequest($request);
+
+        // si le formulaire est soumis et que les filtes ont été validés (fonctions natives de symfony)
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $entreprise = $form->getData();
+            // recupère depuis doctrine, le manager qui est initialisé (où se situe le persist et le flush)
+            $entityManager = $doctrine->getManager();
+            // équivalent tu prepare();
+            $entityManager->persist($entreprise);
+            // équivalent du execute() -> insert into
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_entreprise');
+        }
+
+        // vue pour afficher le formulaire d'ajout
+        return $this->render('entreprise/add.html.twig', [
+            // création d'une variable qui fait passer le formulaire qui a était créé visuellement
+            'formAddEntreprise' => $form->createView()
+        ]);
+    }
 
     // ACTION 
     /**
@@ -49,4 +82,5 @@ class EntrepriseController extends AbstractController
             'entreprise' => $entreprise
         ]);
     }
+
 }
