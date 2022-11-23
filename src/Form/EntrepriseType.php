@@ -16,14 +16,25 @@ class EntrepriseType extends AbstractType
     {
         $builder
             // informe que le champs sera un input de type text
-            ->add('raisonSociale', TextType::class)
-            ->add('dateCreation', DateType::class, [
-                'widget' => 'single_text'
+            ->add('raisonSociale', TextType::class, [
+                'attr' => ['class' => 'form-control']
             ])
-            ->add('adresse', TextType::class)
-            ->add('cp', TextType::class)
-            ->add('ville', TextType::class)
-            ->add('siret', TextType::class)
+            ->add('dateCreation', DateType::class, [
+                'widget' => 'single_text',
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('adresse', TextType::class, [
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('cp', TextType::class, [
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('ville', TextType::class, [
+                'attr' => ['class' => 'form-control']
+            ])
+            ->add('siret', TextType::class, [
+                'attr' => ['class' => 'form-control']
+            ])
             ->add('submit', SubmitType::class, [
                 'attr' => ['class' => 'btn btn-secondary']
             ])
