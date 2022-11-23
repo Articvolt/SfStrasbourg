@@ -5,9 +5,30 @@
 
 {% block body %}
 
-    <h1>Ajouter une entreprise</h1>
- 
+    {% if edit %}
+        <h1>Editer une entreprise</h1>
+    {% else %}
+        <h1>Ajouter une entreprise</h1>
+    {% endif %}
+    
     {# fonction de twig #}
-    {{ form(formAddEntreprise) }}
+    {# {{ form(formAddEntreprise) }} #}
 
+    {{ form_start(formAddEntreprise) }}
+    {# BUG #}
+        <div>
+            {{ form_row(formAddEntreprise.raisonSociale) }}
+            {{ form_row(formAddEntreprise.dateCreation) }}
+            {{ form_row(formAddEntreprise.siret) }}
+        </div>
+        <div>
+            {{ form_row(formAddEntreprise.adresse) }}
+            {{ form_row(formAddEntreprise.cp) }}
+            {{ form_row(formAddEntreprise.ville) }}
+        </div>
+        <div>
+            {{ form_row(formAddEntreprise.submit) }}        
+        </div>      
+    {{ form_end(formAddEntreprise) }}
+    
 {% endblock %}

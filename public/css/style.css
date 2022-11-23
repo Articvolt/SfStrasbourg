@@ -9,3 +9,7 @@ a {
 li {
     list-style: none;
 }
+
+.prenomNom {
+    display: flex;
+}
