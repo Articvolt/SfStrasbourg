@@ -36,7 +36,7 @@ class EntrepriseType extends AbstractType
                 'attr' => ['class' => 'form-control']
             ])
             ->add('submit', SubmitType::class, [
-                'attr' => ['class' => 'btn btn-secondary']
+                'attr' => ['class' => 'btn btn-success']
             ])
         ;
     }

@@ -41,10 +41,17 @@ class EntrepriseController extends AbstractController
     }
 
     // ADD FORMULAIRE (mettre avant les recherches en détails -> risque de confusion)
+    // bien mettre l'id dans la route si on veux cibler une donnée
     /**
      * @Route("/entreprise/add", name="add_entreprise")
+     * @Route("/entreprise/{id}/edit", name="edit_entreprise")
      */
     public function add(ManagerRegistry $doctrine, Entreprise $entreprise = null, Request $request): Response {
+
+        if(!$entreprise) {
+            $entreprise = new Entreprise();
+        }
+
 
         // construit un formulaire à partir d'un builder (EntrepriseType)
         $form = $this->createForm(EntrepriseType::class, $entreprise);

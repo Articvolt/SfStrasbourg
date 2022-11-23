@@ -30,6 +30,7 @@
     
         {# si il y a un tostring, on peux l'appeler comme ceci #}
         <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a> <br>
+        <a class="btn btn-warning" href="{{ path('edit_entreprise', {'id': entreprise.id}) }}">Editer</a> <br>
     {% endfor %}
 
 {% endblock %}
