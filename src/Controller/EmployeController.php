@@ -68,6 +68,19 @@ class EmployeController extends AbstractController
         ]);
     }
 
+    // SUPPRESSION EMPLOYE
+    /**
+     * @Route("employe/{id}/delete", name="delete_employe")
+     */
+    public function delete(ManagerRegistry $doctrine, Employe $employe) {
+
+        $entityManager = $doctrine->getManager();
+        // enleve de la collection de la base de données
+        $entityManager->remove($employe);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_employe');
+    }
 
     // RESPECTER LA SYNTAXE PRECISE DE LA ROUTE !
     /**

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EmployeController!{% endblock %}
+{% block title %}Liste des employés{% endblock %}
 
 {% block body %}
     <h1>Liste des employés</h1>
@@ -11,6 +11,7 @@
     {% for employe in employes %}
         <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a> <br>
         <a class="btn btn-warning" href="{{ path('edit_employe', {'id': employe.id}) }}">Editer</a> <br>
+        <a class="btn btn-danger" href="{{ path('delete_employe', {'id': employe.id}) }}">Supprimer</a> <br>
 
     {% endfor %}
 {% endblock %}

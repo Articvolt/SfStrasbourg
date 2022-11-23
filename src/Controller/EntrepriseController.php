@@ -79,6 +79,20 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
+    // SUPPRESSION ENTREPRISE + EMPLOYE LIE
+    /**
+     * @Route("entreprise/{id}/delete", name="delete_entreprise")
+     */
+    public function delete(ManagerRegistry $doctrine, Entreprise $entreprise) {
+
+        $entityManager = $doctrine->getManager();
+        // enleve de la collection de la base de données
+        $entityManager->remove($entreprise);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_entreprise');
+    }
+
     // ACTION 
     /**
      * @Route("/entreprise/{id}", name="show_entreprise")

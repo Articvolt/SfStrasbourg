@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EntrepriseController!{% endblock %}
+{% block title %}Liste des entreprises{% endblock %}
 
 {% block body %}
     <h1>Liste des entreprises</h1>
@@ -31,6 +31,7 @@
         {# si il y a un tostring, on peux l'appeler comme ceci #}
         <a href="{{ path('show_entreprise', {'id': entreprise.id}) }}">{{ entreprise }}</a> <br>
         <a class="btn btn-warning" href="{{ path('edit_entreprise', {'id': entreprise.id}) }}">Editer</a> <br>
+        <a class="btn btn-danger" href="{{ path('delete_entreprise', {'id': entreprise.id}) }}">Supprimer</a> <br>
     {% endfor %}
 
 {% endblock %}
