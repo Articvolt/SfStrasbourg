@@ -6,13 +6,13 @@
 {% block body %}
 
     {# BUG #}
-    {# {% if edit %}
+    {% if edit %}
         <h1>Editer un employé</h1>
     {% else %}
         <h1>Ajouter un employé</h1>
-    {% endif %} #}
+    {% endif %}
         
-    <h1>Ajouter un employé</h1>
+    {# <h1>Ajouter un employé</h1> #}
 
     {# personnaliser son formulaire #}
     {{ form_start(formAddEmploye) }}
