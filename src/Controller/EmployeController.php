@@ -42,6 +42,10 @@ class EmployeController extends AbstractController
      */
     public function add(ManagerRegistry $doctrine, Employe $employe = null, Request $request): Response {
 
+        if(!$employe) {
+            $employe= new Employe();
+        }
+
         // construit un formulaire à partir d'un builder (EmployeType)
         $form = $this->createForm(EmployeType::class, $employe);
         // récupère les données de l'objet pour les envoyer dans le formulaire
